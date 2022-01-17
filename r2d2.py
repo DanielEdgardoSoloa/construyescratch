@@ -87,4 +87,4 @@ try:
         os.system('rm -r ./unpackaged/uiObjectRelationConfigs/')
 except:
     print('uiObjectRelationConfigs no existe')
-os.system("sfdx force:mdapi:convert --rootdir ./unpackaged --outputdir ./Salesforce/main/default")
+os.system("sfdx force:mdapi:convert --rootdir ./unpackaged --outputdir ./Salesforce")
