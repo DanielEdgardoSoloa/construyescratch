@@ -7,6 +7,23 @@ import zipfile
 # # Alias de la Org registrada con SFDX o Usuario que identifica la Org registrada con SFDX
 origen = sys.argv[1]
 
+def indent(elem, level=0):
+    i = "\n" + level*"  "
+    j = "\n" + (level-1)*"  "
+    if len(elem):
+        if not elem.text or not elem.text.strip():
+            elem.text = i + "  "
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+        for subelem in elem:
+            indent(subelem, level+1)
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = j
+    else:
+        if level and (not elem.tail or not elem.tail.strip()):
+            elem.tail = j
+    return elem
+
 # Creacion del Archivo XML
 root = ET.Element(
     'Package', {'xmlns': 'http://soap.sforce.com/2006/04/metadata'})
