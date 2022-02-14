@@ -105,5 +105,5 @@ def retrieve(package):
         "sfdx force:mdapi:convert --rootdir ./unpackaged --outputdir ./Salesforce")
 
 
-retrieve('./package')
-retrieve('./package2')
+retrieve('./Package')
+retrieve('./Package2')
